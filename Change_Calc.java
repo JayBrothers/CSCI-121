@@ -5,6 +5,16 @@ public class Change_Calc {
         Scanner sc = new Scanner(System.in);
         String amount = sc.nextLine();
 
+        if (amount.matches(".*[a-z].*") || amount.matches(".*(A-Z).*")){
+            System.out.println("Input must be a number");
+            System.exit(0);
+        }
+
+        // Removes $ if present
+        if (amount.indexOf('$') != -1){
+            amount = amount.replace("$","");
+        }
+
         // Checks if User input is positive
         if (amount.indexOf('-') != -1){
             System.out.println("Error: Number cannot be negative");
